@@ -1,4 +1,4 @@
-import java.util.Objects;
+
 import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
@@ -9,11 +9,11 @@ public class Main {
             System.out.println("What is the name of your creature?");
             String name=scan.nextLine();
             Creatures rawr = new Creatures(name, 0, 0, 0);
-            System.out.println("You have "+(int)((Math.random()*26)+75)+" skill points");
-
+            int skillPoints = rawr.attributePointRandomizer();
             System.out.println("Which attribute would you like to prioritize?");
-            String prioritezedAtribute=scan.nextLine();
-            rawr.atributeCalculator(prioritezedAtribute);
+            String prioritizedAttribute=scan.nextLine();
+            rawr.attributeCalculator(prioritizedAttribute, skillPoints);
+
         }
         else {
             System.out.println("Maybe next time.");
