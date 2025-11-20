@@ -5,11 +5,13 @@ public class Main {
         Scanner scan = new Scanner(System.in);
         System.out.println("Create a new creature?");
         String ans =scan.nextLine();
-        if (ans.equals("yes")||ans.equals("Yes")){
+        ans=ans.toLowerCase();
+        if (ans.equals("yes")){
             System.out.println("What is the name of your creature?");
             String name=scan.nextLine();
             Creatures rawr = new Creatures(name, 0, 0, 0);
             int skillPoints = rawr.attributePointRandomizer();
+            System.out.println("You have "+skillPoints+ " skill points.");
             System.out.println("Which attribute would you like to prioritize?");
             String prioritizedAttribute=scan.nextLine();
             rawr.attributeCalculator(prioritizedAttribute, skillPoints);

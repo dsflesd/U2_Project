@@ -17,19 +17,32 @@ public class Creatures {
 
 
     public void attributeCalculator (String prioritizedAttribute, int skillPoints){
+        int initialSkillPoints = skillPoints;
+        int strengthStatAdd=0;
         while(skillPoints>0){
-        if (prioritizedAttribute.equals("strength")||prioritizedAttribute.equals("Strength")){
-            strengthStat=strengthStat+10;
-            skillPoints=skillPoints-10;
-            while(defenceStat+healthStat<=skillPoints){
-                defenceStat=(int)((Math.random()*(skillPoints-10))+10);
-                healthStat=(int)((Math.random()*(skillPoints-10))+10);
+        if (prioritizedAttribute.equals("strength")||prioritizedAttribute.equals("Strength")) {
+            strengthStat = strengthStat + 10;
+            skillPoints = skillPoints - 10;
+            while ((defenceStat + healthStat + strengthStatAdd < skillPoints)) {
+                if (defenceStat + healthStat + strengthStatAdd > skillPoints){
+                strengthStatAdd = (int) ((Math.random() * (skillPoints - 10)) + 10);
+                defenceStat = (int) ((Math.random() * (skillPoints - 10)) + 10);
+                healthStat = (int) ((Math.random() * (skillPoints - 10)) + 10);}
+                else {
+                    strengthStatAdd = (int) ((Math.random() * (skillPoints - 10)) + 10);
+                    defenceStat = (int) ((Math.random() * (skillPoints - 10)) + 10);
+                    healthStat = (int) ((Math.random() * (skillPoints - 10)) + 10);
+                }
             }
-            skillPoints=skillPoints-healthStat-defenceStat;
-            strengthStat=strengthStat+skillPoints;
-            skillPoints=0;
         }
-        else if(prioritizedAttribute.equals("health")||prioritizedAttribute.equals("Health")){
+
+//
+//            skillPoints=initialSkillPoints-(healthStat+defenceStat);
+//            System.out.println(skillPoints);
+//            strengthStat=strengthStat+skillPoints;
+////            skillPoints=0;
+
+         if(prioritizedAttribute.equals("health")||prioritizedAttribute.equals("Health")){
                 healthStat=healthStat+10;
                 skillPoints=skillPoints-10;
             while(strengthStat+defenceStat<=skillPoints){
@@ -40,7 +53,7 @@ public class Creatures {
             healthStat=healthStat+skillPoints;
             skillPoints=0;
         }
-        else if (prioritizedAttribute.equals("defence")||prioritizedAttribute.equals("Defence")){
+        if (prioritizedAttribute.equals("defence")||prioritizedAttribute.equals("Defence")){
             defenceStat=defenceStat+10;
             skillPoints=skillPoints-10;
             while(healthStat+strengthStat<=skillPoints){
