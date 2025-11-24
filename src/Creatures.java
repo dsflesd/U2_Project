@@ -1,3 +1,4 @@
+
 public class Creatures {
     private int healthStat;
     private int strengthStat;
@@ -17,19 +18,13 @@ public class Creatures {
 
 
     public void attributeCalculator (String prioritizedAttribute, int skillPoints) {
-        int initialSkillPoints = skillPoints;
-        int strengthStatAdd = 0;
-//        while(skillPoints>0){
         if (prioritizedAttribute.equals("strength") || prioritizedAttribute.equals("Strength")) {
-            strengthStat=20;
+            strengthStat=skillPoints/5;
             strengthStat =  strengthStat+(int) ((Math.random() * (skillPoints)) + 10);
             while(strengthStat>skillPoints){
                 strengthStat =  (int) ((Math.random() * (strengthStat)));}
-
-//
-//
-            defenceStat = (int) ((Math.random() * (skillPoints)) + 10);
-            healthStat = (int) ((Math.random() * (skillPoints)) + 10);
+                defenceStat = (int) ((Math.random() * (skillPoints)) + 10);
+                 healthStat = (int) ((Math.random() * (skillPoints)) + 10);
 
             while (!(defenceStat + healthStat+strengthStat == skillPoints)){
                 defenceStat = (int) ((Math.random() * (skillPoints)) + 10);
