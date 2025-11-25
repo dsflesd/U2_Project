@@ -6,20 +6,27 @@ public class Main {
         System.out.println("Create a new creature?");
         String ans =scan.nextLine();
         ans=ans.toLowerCase();
-//        if (ans.equals("yes")){
-//            System.out.println("What is the name of your creature?");
+        if (ans.equals("yes")){
+            System.out.println("What is the name of your creature?");
             String name=scan.nextLine();
             Creatures rawr = new Creatures(name, 0, 0, 0);
             int skillPoints = rawr.attributePointRandomizer();
-            System.out.println("You have "+skillPoints+ " skill points.");
+            System.out.println("You have " + skillPoints + " skill points.");
             System.out.println("Which attribute would you like to prioritize?");
             String prioritizedAttribute=scan.nextLine();
-            rawr.attributeCalculator(prioritizedAttribute, skillPoints);
-
-//        }
-//        else {
-//            System.out.println("Maybe next time.");
-//        }
+            if (prioritizedAttribute.equals("Strength") || prioritizedAttribute.equals("strength")){
+                 rawr.prioritzeStrength( skillPoints);
+            }
+            if (prioritizedAttribute.equals("health") || prioritizedAttribute.equals("Health")){
+                rawr.prioritzeHealth( skillPoints);
+            }
+            if (prioritizedAttribute.equals("defence") || prioritizedAttribute.equals("Defence")) {
+                rawr.prioritzeHealth(skillPoints);
+            }
+        }
+        else {
+            System.out.println("Maybe next time.");
+        }
 
 
         scan.close();
