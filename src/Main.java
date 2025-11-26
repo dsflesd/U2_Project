@@ -15,13 +15,13 @@ public class Main {
             System.out.println("Which attribute would you like to prioritize?");
             String prioritizedAttribute=scan.nextLine();
             if (prioritizedAttribute.equals("Strength") || prioritizedAttribute.equals("strength")){
-                 rawr.prioritzeStrength( skillPoints);
+                 rawr.prioritizeStrength( skillPoints);
             }
             if (prioritizedAttribute.equals("health") || prioritizedAttribute.equals("Health")){
-                rawr.prioritzeHealth( skillPoints);
+                rawr.prioritizeHealth(skillPoints);
             }
             if (prioritizedAttribute.equals("defence") || prioritizedAttribute.equals("Defence")) {
-                rawr.prioritzeHealth(skillPoints);
+                rawr.prioritizeDefence(skillPoints);
             }
         }
         else {

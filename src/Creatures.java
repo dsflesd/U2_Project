@@ -15,9 +15,9 @@ public class Creatures {
         return ((int) (Math.random() * 26) + 75);
     }
 
-    public void prioritzeStrength(int skillPoints) {
+    public void prioritizeStrength(int skillPoints) {
 
-        strengthStat = 15;
+        strengthStat = 18;
         strengthStat = strengthStat + (int) ((Math.random() * (skillPoints)) + 10);
         while (strengthStat >= skillPoints) {
             strengthStat = (int) ((Math.random() * (strengthStat)));
@@ -31,57 +31,48 @@ public class Creatures {
 
         skillPoints = skillPoints - defenceStat - healthStat;
         strengthStat = strengthStat + skillPoints;
+
+        System.out.println("Strength stat: " + strengthStat);
+        System.out.println("Health stat: " + healthStat);
+        System.out.println("Defence stat: " + defenceStat);
     }
 
-    public void prioritzeHealth(int skillPoints) {
-
-        healthStat = 15;
+    public void prioritizeHealth(int skillPoints) {
+        healthStat = 18;
         healthStat = healthStat + (int) ((Math.random() * (skillPoints)) + 10);
         while (healthStat >= skillPoints) {
             healthStat = (int) ((Math.random() * (healthStat)));
         }
         skillPoints = skillPoints - healthStat;
         do {
-            defenceStat = (int) ((Math.random() * (skillPoints)) + 12);
             strengthStat = (int) ((Math.random() * (skillPoints)) + 12);
+            defenceStat = (int) ((Math.random() * (skillPoints)) + 12);
         }
-        while (((defenceStat + strengthStat) > skillPoints));
+        while (((strengthStat + defenceStat) > skillPoints));
         skillPoints = skillPoints - defenceStat - strengthStat;
         healthStat = healthStat + skillPoints;
 
+        System.out.println("Strength stat: " + strengthStat);
+        System.out.println("Health stat: " + healthStat);
+        System.out.println("Defence stat: " + defenceStat);
+
     }
-    public void priorizeDefence(int skillPoints){
-//        if (prioritizedAttribute.equals("health") || prioritizedAttribute.equals("Health")) {
-//            healthStat = 15;
-//            healthStat=healthStat+(int)((Math.random()*(skillPoints))+10);
-//            while(healthStat>=skillPoints){
-//                healthStat = (int)((Math.random()*(healthStat)));
-//            }
-//            skillPoints=skillPoints-healthStat;
-//            strengthStat=(int)((Math.random()*(skillPoints))+12);
-//            defenceStat=(int)((Math.random()*(skillPoints))+12);
-//            do {
-//                defenceStat = (int) ((Math.random() * (skillPoints)) + 12);
-//                strengthStat = (int) ((Math.random() * (skillPoints)) + 12);
-//            }
-//            while ((strengthStat + defenceStat) > skillPoints);
-//            skillPoints = skillPoints - defenceStat - strengthStat;
-//            healthStat = healthStat + skillPoints;
-//        }
-//        if (prioritizedAttribute.equals("defence") || prioritizedAttribute.equals("Defence")) {
-//            defenceStat = 15;
-//            defenceStat=defenceStat+(int)((Math.random()*(skillPoints))+10);
-//            while(defenceStat>=skillPoints){
-//                defenceStat=(int)(Math.random()*(defenceStat));
-//            }
-//            do {
-//                healthStat = (int) ((Math.random() * (skillPoints)) + 12);
-//                strengthStat = (int) ((Math.random() * (skillPoints)) + 12);
-//            }
-//            while ((healthStat + strengthStat)>skillPoints);
-//            skillPoints = skillPoints - healthStat - strengthStat;
-//            defenceStat = defenceStat + skillPoints;
-//        }
+
+    public void prioritizeDefence(int skillPoints) {
+        defenceStat = 18;
+        defenceStat = defenceStat + (int) ((Math.random() * (skillPoints)) + 10);
+        while (defenceStat >= skillPoints) {
+            defenceStat = (int) ((Math.random() * (defenceStat)));
+        }
+        skillPoints = skillPoints - defenceStat;
+        do {
+            strengthStat = (int) ((Math.random() * (skillPoints)) + 12);
+            healthStat = (int) ((Math.random() * (skillPoints)) + 12);
+        }
+        while (((strengthStat + healthStat) > skillPoints));
+        skillPoints = skillPoints - healthStat - strengthStat;
+        defenceStat = defenceStat + skillPoints;
+
         System.out.println("Strength stat: " + strengthStat);
         System.out.println("Health stat: " + healthStat);
         System.out.println("Defence stat: " + defenceStat);
